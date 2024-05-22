@@ -20,7 +20,7 @@ const saveClient = async (req, res) => {
     const clientData = req.body;
     const newClient = new Clint(clientData);
     const respons = await newClient.save();
-    console.log("save sucsessfully", respons);
+    // console.log("save sucsessfully", respons);
 
     return res.status(200).send("ok");
   } catch (error) {
