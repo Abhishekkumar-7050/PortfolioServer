@@ -26,7 +26,7 @@ app.use(cors({
 
 app.use('/resume',resumeRouter);
 // app.use('/resume',resumeRouter);
-app.use('/sendmail', resumeRouter);
+app.use('/sendMessage', resumeRouter);
 
 
 app.listen(process.env.PORT ,()=>{
