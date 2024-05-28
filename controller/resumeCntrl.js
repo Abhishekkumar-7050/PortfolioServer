@@ -20,24 +20,11 @@ const saveClient = async (req, res) => {
   try {
     const clientData = req.body;
     const newClient = new Clint(clientData);
-    const respons = await newClient.save();
-    // console.log("save sucsessfully", respons);
+    // const respons = await newClient.save();
+    console.log("save sucsessfully");
 
-    let transporter =  nodemailer.createTransport({
-      host: `smtp.gmail.com`,
-      auth: {
-        user: "abhishekkumar0001dhkp@gmailcom",
-        pass: `wwhx oaxw nkfm jazs`,
-      },
-    });
-
-    let info = await transporter.sendMail({
-      from: `CodeHelp - by Babbar`,
-      to: "coolestex@gmail.com",
-      subject: clientData.subject,
-      html: `${clientData}`,
-    });
-    console.log("INFO", info,respons);
+   
+    
 
     return res.status(200).send("ok");
   } catch (error) {
@@ -46,7 +33,42 @@ const saveClient = async (req, res) => {
   }
 };
 
+
+
+const sendEmail = async (req, res)=>{
+try {
+  const clientData = req.body;
+  let transporter =   nodemailer.createTransport({
+    host: `smtp.gmail.com`,
+    auth: {
+      user: "abhimm113@gmail.com",
+      // pass: `wwhx oaxw nkfm jazs`,
+      pass: `keov fmku euek fgfv
+      `,
+    },
+  });
+  // <h1> clientData.name , clientData.number, clientData.email,clientData.subject</h1>
+  let info = await transporter.sendMail({
+    from: `From Abhishek `,
+    to: "coolestex@gmail.com, abhishekkumar0001dhkp@gmail.com",
+    subject: clientData.subject,
+    html: `Name:  
+    ${clientData.name},Number :
+     ${clientData.mobile} , Message:
+      ${clientData.message}, Email:
+       ${clientData.email} `
+  
+  });
+  // console.log("INFO", info);
+  res.send({info});
+
+} catch (error) {
+  console.log(" error from email", error);
+}
+}
+
 module.exports = {
   download,
   saveClient,
+  sendEmail
 };
