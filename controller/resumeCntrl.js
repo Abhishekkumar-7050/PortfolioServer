@@ -50,7 +50,7 @@ try {
   // <h1> clientData.name , clientData.number, clientData.email,clientData.subject</h1>
   let info = await transporter.sendMail({
     from: `From Abhishek `,
-    to: "coolestex@gmail.com, abhishekkumar0001dhkp@gmail.com",
+    to: "rahulyadav4191465@gmail.com, abhishekkumar0001dhkp@gmail.com",
     subject: clientData.subject,
     html: `Name:  
     ${clientData.name},Number :
