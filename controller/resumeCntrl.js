@@ -53,9 +53,9 @@ try {
     to: "rahulyadav4191465@gmail.com, abhishekkumar0001dhkp@gmail.com",
     subject: clientData.subject,
     html: `Name:  
-    ${clientData.name},Number :
-     ${clientData.mobile} , Message:
-      ${clientData.message}, Email:
+    ${clientData.name} <br>,Number :
+     ${clientData.mobile}<br> , Message:
+      ${clientData.message}<br> , Email:
        ${clientData.email} `
   
   });
