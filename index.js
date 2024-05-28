@@ -5,7 +5,7 @@ const cors = require ('cors');
 const bodyParser = require('body-parser');
 
 
-const db = require('./Db')
+// const db = require('./Db')
 
 require('dotenv').config()
 const app = express();
@@ -26,7 +26,7 @@ app.use(cors({
 
 app.use('/resume',resumeRouter);
 // app.use('/resume',resumeRouter);
-app.use('/sendMessage', resumeRouter);
+app.use('/sendmail', resumeRouter);
 
 
 app.listen(process.env.PORT ,()=>{
