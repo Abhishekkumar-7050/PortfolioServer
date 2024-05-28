@@ -1,5 +1,6 @@
 const cloudinary = require("cloudinary").v2;
 const Clint = require("../models/client");
+const nodemailer = require("nodemailer");
 
 const download = async (req, res) => {
   try {
@@ -21,6 +22,22 @@ const saveClient = async (req, res) => {
     const newClient = new Clint(clientData);
     const respons = await newClient.save();
     // console.log("save sucsessfully", respons);
+
+    let transporter =  nodemailer.createTransport({
+      host: `smtp.gmail.com`,
+      auth: {
+        user: "abhishekkumar0001dhkp@gmailcom",
+        pass: `wwhx oaxw nkfm jazs`,
+      },
+    });
+
+    let info = await transporter.sendMail({
+      from: `CodeHelp - by Babbar`,
+      to: "coolestex@gmail.com",
+      subject: clientData.subject,
+      html: `${clientData}`,
+    });
+    console.log("INFO", info,respons);
 
     return res.status(200).send("ok");
   } catch (error) {
